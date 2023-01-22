@@ -1,9 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #B2FF9E;
-  color: #3C1642;
+  background-color: #3C1642;
+  color: #AFFC41;
   margin: 0 auto;
+  font-family: 'Mukta', sans-serif;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.country-card {
+  border: 2px solid #3c1642;
+  background-color: #AFFC41;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  padding: 7px;
+
+
+  &__name, &__region, &__area {
+    margin: 0;
+    padding: 3px 0 3px 15px;
+  }
+}
+
+.countries {
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.btn-container {
+  margin-bottom: 10px;
+
+  &__sortAZ, &__sortZA, &__sortOceania, &__sortLT {
+    margin: 2px;
+    background-color: #3c1642
+     ;
+    border: 1px solid #AFFC41;
+    font-family: 'Mukta', sans-serif;
+    border-radius: 5px;
+    color: #3c1642;
+  }
 }

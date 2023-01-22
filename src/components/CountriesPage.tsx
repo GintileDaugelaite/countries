@@ -4,10 +4,10 @@ import CountryList from "./CountryList";
 
 const CountriesPage = () => {
   return (
-    <>
+    <div className="wrapper">
       <Header />
       <CountryList />
-    </>
+    </div>
   );
 };
 
