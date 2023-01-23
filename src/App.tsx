@@ -1,11 +1,39 @@
-import React from 'react';
-import CountriesPage from './components/CountriesPage';
-import './App.scss';
+import React, { useState, useEffect } from "react";
+import Header from "./components/Header";
+import CountryList from "./components/CountryList";
+import axios from "axios";
+import "./App.scss";
 
-function App() {
+type CountryListArray = {
+  name: string;
+  region: string;
+  area: string;
+};
+
+const App: React.FC = () => {
+  const [countries, setCountries] = useState<CountryListArray[]>([]);
+  const [originalCountries, setOriginalCountries] = useState<
+    CountryListArray[]
+  >([]);
+
+
+
+  useEffect(() => {
+    axios
+      .get("https://restcountries.com/v2/all?fields=name,region,area")
+      .then((res) => {
+        setCountries(res.data);
+        setOriginalCountries(res.data);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
   return (
-    <CountriesPage />
+    <div className="wrapper">
+      <Header countries={countries} setCountries={setCountries} originalCountries={originalCountries}  />
+      <CountryList countries={countries}/>
+    </div>
   );
-}
+};
 
 export default App;

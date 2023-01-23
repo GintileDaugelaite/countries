@@ -5,8 +5,8 @@
 }
 
 body {
-  background-color: #3C1642;
-  color: #AFFC41;
+  background-color: #affc41;
+  color: #3c1642;
   margin: 0 auto;
   font-family: 'Mukta', sans-serif;
 }
@@ -19,11 +19,12 @@ body {
 }
 
 .country-card {
-  border: 2px solid #3c1642;
-  background-color: #AFFC41;
+  border: 2px solid #affc41;
+  background-color: #81ba3164;
   margin-bottom: 5px;
   border-radius: 10px;
   padding: 7px;
+  width: 30rem;
 
 
   &__name, &__region, &__area {
@@ -38,18 +39,50 @@ body {
     margin: 0;
     padding: 0;
   }
+
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__pagination--btn {
+    margin: 2px;
+    background-color: #3c1642;
+    border: 1px solid #3c1642;
+    font-family: 'Mukta', sans-serif;
+    border-radius: 8px;
+    color: #def4d8;
+    font-weight: 600;
+    cursor: pointer;
+    width: 25px;
+    font-size: 10px;
+  }
+
+  &__pagination--btn:hover {
+    background-color: #6b2476;
+    border: 1px solid #3c1642;
+  }
 }
 
 .btn-container {
   margin-bottom: 10px;
 
-  &__sortAZ, &__sortZA, &__sortOceania, &__sortLT {
+  &__sortAZ, &__reset, &__sortOceania, &__sortLT {
     margin: 2px;
-    background-color: #3c1642
-     ;
-    border: 1px solid #AFFC41;
+    padding: 5px;
+    background-color: #3c1642;
+    border: 1px solid #3c1642;
     font-family: 'Mukta', sans-serif;
-    border-radius: 5px;
-    color: #3c1642;
+    border-radius: 8px;
+    color: #def4d8;
+    font-weight: 600;
+    cursor: pointer;
   }
+
+  &__sortAZ:hover, &__reset:hover, &__sortOceania:hover, &__sortLT:hover {
+    background-color: #6b2476;
+    border: 1px solid #3c1642;
+  }
+
 }
+

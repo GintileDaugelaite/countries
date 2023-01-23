@@ -1,41 +1,51 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import axios from "axios";
+import React, {useState} from "react";
 import CountryCard from "./CountryCard";
 
-
 type CountryListArray = {
-    name: string;
-    region: string;
-    area: string;
-    independent: boolean;
-  };
+  name: string;
+  region: string;
+  area: string;
+};
+
+type CountryListProps = {
+  countries: CountryListArray[];
+};
+
+const CountryList = ({ countries }: CountryListProps) => {
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 17;
+    const totalPages = Math.ceil(countries.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
   
+    const paginatedData = countries.slice(startIndex, endIndex);
+  
+    const handlePageChange = (page: number) => {
+      setCurrentPage(page)
+    }
 
-const CountryList: React.FC = () => {
 
-
-    const [countries, setCountries] = useState<CountryListArray[]>([]);
-
-    useEffect(() => {
-
-        axios.get<CountryListArray[]>('https://restcountries.com/v2/all?fields=name,region,area')
-            .then(res => setCountries(res.data));
-    }, [])
-
-    return(
-
-        <>
-            <div className="countries">
-                <ul className="countries__list">
-                {
-                            countries && countries.map((country, index) => <li className="countries__country">{<CountryCard key={country.name} {...country} />}</li>)
-                }
-                </ul>
-            </div>
-
+  return (
+    <>
+      <div className="countries">
+        <ul className="countries__list">
+          {countries &&
+            paginatedData.map((country) => (
+              <li className="countries__country">
+                {<CountryCard key={country.name} {...country} />}
+              </li>
+            ))}
+        </ul>
+        <div className="countries__pagination">
+            {Array.from({length: totalPages}, (_, i) => (
+                <button className="countries__pagination--btn" key={i} onClick={() => {
+                    handlePageChange(i + 1)
+                }}>{i + 1}</button>
+            ))}
+        </div>
+      </div>
     </>
-    )
-}
+  );
+};
 
 export default CountryList;
