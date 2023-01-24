@@ -1,12 +1,12 @@
 # Countries App
 
 An application that:
-• Fetches the data from the endpoint.
-• Displays a list for the data.
-• Makes the list sortable alphabetically by name (ascending, descending).
-• Filters countries:
-- That are smaller than Lithuania by area.
-- That are in “Oceania” region.
+- Fetches the data from the endpoint.
+- Displays a list for the data.
+- Makes the list sortable alphabetically by name (ascending, descending).
+- Filters countries:
+  - That are smaller than Lithuania by area.
+  - That are in “Oceania” region.
 
 Built with React, TypeScript, and SCSS.
 
