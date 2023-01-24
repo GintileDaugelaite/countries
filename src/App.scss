@@ -1,14 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap");
+@import "./styles/mixins";
+@import "./styles/variables";
 
 * {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #affc41;
-  color: #3c1642;
+  background-color: $green-color;
+  color: $purple-color;
   margin: 0 auto;
-  font-family: 'Mukta', sans-serif;
+  font-family: $regular-font;
 }
 
 .wrapper {
@@ -19,17 +21,29 @@ body {
 }
 
 .country-card {
-  border: 2px solid #affc41;
   background-color: #81ba3164;
   margin-bottom: 5px;
-  border-radius: 10px;
+  border-radius: $border-radius-8;
   padding: 7px;
   width: 30rem;
 
-
-  &__name, &__region, &__area {
+  &__name,
+  &__region,
+  &__area {
     margin: 0;
     padding: 3px 0 3px 15px;
+
+    @include mini-mobile {
+      padding: 3px 0 3px 5px;
+    }
+  }
+  @include mini-mobile {
+    padding: 3px 0 3px 6px;
+    width: 14rem;
+  }
+
+  @include mobile {
+    width: 20rem;
   }
 }
 
@@ -43,15 +57,24 @@ body {
   &__pagination {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
+
+    @include mini-mobile {
+      flex-wrap: wrap;
+    }
+
+    @include mobile {
+      flex-wrap: wrap;
+    }
   }
 
   &__pagination--btn {
     margin: 2px;
-    background-color: #3c1642;
-    border: 1px solid #3c1642;
-    font-family: 'Mukta', sans-serif;
-    border-radius: 8px;
-    color: #def4d8;
+    background-color: $purple-color;
+    border: $border-1 solid $purple-color;
+    font-family: $regular-font;
+    border-radius: $border-radius-8;
+    color: $white-color;
     font-weight: 600;
     cursor: pointer;
     width: 25px;
@@ -59,30 +82,56 @@ body {
   }
 
   &__pagination--btn:hover {
-    background-color: #6b2476;
-    border: 1px solid #3c1642;
+    background-color: $purple-hover-color;
+    border: $border-1 solid $purple-color;
+  }
+
+  @include mini-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3px 0 3px 6px;
+    width: 14rem;
+  }
+
+  @include mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 .btn-container {
   margin-bottom: 10px;
 
-  &__sortAZ, &__reset, &__sortOceania, &__sortLT {
+  &__sortAZ,
+  &__reset,
+  &__sortOceania,
+  &__sortLT {
     margin: 2px;
     padding: 5px;
-    background-color: #3c1642;
-    border: 1px solid #3c1642;
-    font-family: 'Mukta', sans-serif;
-    border-radius: 8px;
-    color: #def4d8;
+    background-color: $purple-color;
+    border: $border-1 solid $purple-color;
+    font-family: $regular-font;
+    border-radius: $border-radius-8;
+    color: $white-color;
     font-weight: 600;
     cursor: pointer;
   }
 
-  &__sortAZ:hover, &__reset:hover, &__sortOceania:hover, &__sortLT:hover {
-    background-color: #6b2476;
-    border: 1px solid #3c1642;
+  &__sortAZ:hover,
+  &__reset:hover,
+  &__sortOceania:hover,
+  &__sortLT:hover {
+    background-color: $purple-hover-color;
+    border: $border-1 solid $purple-color;
   }
 
+  @include mini-mobile {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }
-

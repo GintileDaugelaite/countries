@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CountryCard from "./CountryCard";
 
 type CountryListArray = {
@@ -12,18 +12,21 @@ type CountryListProps = {
 };
 
 const CountryList = ({ countries }: CountryListProps) => {
-    const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 17;
-    const totalPages = Math.ceil(countries.length / itemsPerPage);
-    const startIndex = (currentPage - 1) * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-  
-    const paginatedData = countries.slice(startIndex, endIndex);
-  
-    const handlePageChange = (page: number) => {
-      setCurrentPage(page)
-    }
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 17;
+  const totalPages = Math.ceil(countries.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
 
+  const paginatedData = countries.slice(startIndex, endIndex);
+
+  const handlePageChange = (page: number) => {
+    if (page > totalPages) {
+      setCurrentPage(1);
+    } else {
+      setCurrentPage(page);
+    }
+  };
 
   return (
     <>
@@ -37,11 +40,17 @@ const CountryList = ({ countries }: CountryListProps) => {
             ))}
         </ul>
         <div className="countries__pagination">
-            {Array.from({length: totalPages}, (_, i) => (
-                <button className="countries__pagination--btn" key={i} onClick={() => {
-                    handlePageChange(i + 1)
-                }}>{i + 1}</button>
-            ))}
+          {Array.from({ length: totalPages }, (_, i) => (
+            <button
+              className="countries__pagination--btn"
+              key={i}
+              onClick={() => {
+                handlePageChange(i + 1);
+              }}
+            >
+              {i + 1}
+            </button>
+          ))}
         </div>
       </div>
     </>
