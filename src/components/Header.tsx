@@ -17,7 +17,8 @@ const Header = ({
   setCountries,
   originalCountries,
 }: HeaderProps) => {
-  const sortAZ = () => {
+
+  const sortByName = () => {
     setCountries(countries?.slice().sort((a, b) => (a > b ? 1 : -1)));
   };
 
@@ -38,7 +39,7 @@ const Header = ({
       <h1>List of countries</h1>
 
       <div className="btn-container">
-        <button className="btn-container__sortAZ" onClick={sortAZ}>
+        <button className="btn-container__sortAZ" onClick={sortByName}>
           Sort by name
         </button>
         <button className="btn-container__sortOceania" onClick={filterOceania}>

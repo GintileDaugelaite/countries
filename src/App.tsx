@@ -16,8 +16,6 @@ const App: React.FC = () => {
     CountryListArray[]
   >([]);
 
-
-
   useEffect(() => {
     axios
       .get("https://restcountries.com/v2/all?fields=name,region,area")
@@ -30,8 +28,12 @@ const App: React.FC = () => {
 
   return (
     <div className="wrapper">
-      <Header countries={countries} setCountries={setCountries} originalCountries={originalCountries}  />
-      <CountryList countries={countries}/>
+      <Header
+        countries={countries}
+        setCountries={setCountries}
+        originalCountries={originalCountries}
+      />
+      <CountryList countries={countries} />
     </div>
   );
 };

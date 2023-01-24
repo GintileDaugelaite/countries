@@ -33,8 +33,8 @@ const CountryList = ({ countries }: CountryListProps) => {
       <div className="countries">
         <ul className="countries__list">
           {countries &&
-            paginatedData.map((country) => (
-              <li className="countries__country">
+            paginatedData.map((country, i) => (
+              <li className="countries__country" key={country.name}>
                 {<CountryCard key={country.name} {...country} />}
               </li>
             ))}
