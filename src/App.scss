@@ -68,7 +68,7 @@ body {
     }
   }
 
-  &__pagination--btn {
+  &__pagination-btn, &__pagination-btn--current {
     margin: 2px;
     background-color: $purple-color;
     border: $border-1 solid $purple-color;
@@ -81,7 +81,12 @@ body {
     font-size: 10px;
   }
 
-  &__pagination--btn:hover {
+  &__pagination-btn--current {
+    background-color: $purple-hover-color;
+    border: $border-1 solid $purple-color;
+  }
+
+  &__pagination-btn:hover {
     background-color: $purple-hover-color;
     border: $border-1 solid $purple-color;
   }
@@ -107,7 +112,6 @@ body {
   margin-bottom: 10px;
 
   &__sortAZ,
-  &__reset,
   &__sortOceania,
   &__sortLT {
     margin: 2px;
@@ -122,7 +126,6 @@ body {
   }
 
   &__sortAZ:hover,
-  &__reset:hover,
   &__sortOceania:hover,
   &__sortLT:hover {
     background-color: $purple-hover-color;
